@@ -1,7 +1,6 @@
 {
-  "type": "module",
   "scripts": {
-    "start": "node --loader ts-node/esm"
+    "ts-node": "ts-node"
   },
   "devDependencies": {
     "@types/node": "^18.0.5",
