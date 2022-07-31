@@ -12,7 +12,7 @@ class People implements prototype{
         this.sex = "man";
     }
     clone(){
-        return Object.create(People)
+        return Object.create(this)
     }
     public getDiscription(): string {
         return `${this.name},性别${this.sex},${this.age}岁了`
@@ -22,7 +22,7 @@ class People implements prototype{
 
 const people = new People();
 console.log(people.getDiscription());
-const dog1 = Object.create(people);
+const dog1 = people.clone();
 people.name='haha'
 console.log(dog1.getDiscription(),people.getDiscription());
 
