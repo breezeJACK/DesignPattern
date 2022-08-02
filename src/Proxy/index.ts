@@ -39,7 +39,7 @@ class RealSubject implements Subject{
 }
 
 const proxy = new Proxy(new RealSubject(), {
-    get(target, propKey:string) {
+    get(target:RealSubject, propKey:keyof RealSubject) {
         console.log(`代理对象在执行操作 ${propKey}`);
         return target[propKey];
     },
