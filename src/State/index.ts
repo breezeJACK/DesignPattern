@@ -5,7 +5,6 @@ class Context1 {
     }
     transitionTo(state: State) {
         this.state = state
-        this.state.setContext(this)
     }
     attacked() {
         this.state.attacked()
@@ -44,6 +43,7 @@ class CommonState extends State {
 }
 
 const player = new Context1(new CommonState())
+
 player.attack()
 player.attacked()
 player.attack()
