@@ -1,8 +1,7 @@
 class Context1 {
-    private state!: State
-    constructor(state: State) {
-        this.transitionTo(state)
-    }
+     onground= new OngroundState(this)
+     commond  = new CommonState(this)
+    private state=this.commond
     transitionTo(state: State) {
         this.state = state
     }
@@ -16,7 +15,7 @@ class Context1 {
 
 abstract class State {
     protected context!: Context1
-    setContext(context: Context1) {
+    constructor(context: Context1) {
         this.context = context
     }
     abstract attacked(): void
@@ -38,11 +37,11 @@ class CommonState extends State {
     }
     attacked(): void {
         console.log("正常状态 可以被攻击")
-        this.context.transitionTo(new OngroundState())
+        this.context.transitionTo(this.context.onground)
     }
 }
 
-const player = new Context1(new CommonState())
+const player = new Context1()
 
 player.attack()
 player.attacked()
